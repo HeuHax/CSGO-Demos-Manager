@@ -1155,10 +1155,6 @@
           <source>Kills Per Deaths</source>
           <target state="translated">Eliminaciones por muertes</target>
         </trans-unit>
-        <trans-unit id="HeaderToolTipLastConnexion" translate="yes" xml:space="preserve">
-          <source>Last online</source>
-          <target state="translated">Última conexión</target>
-        </trans-unit>
         <trans-unit id="HeaderToolTipMapName" translate="yes" xml:space="preserve">
           <source>Map's name</source>
           <target state="translated">Nombre del mapa</target>
@@ -2853,10 +2849,6 @@ Do you want to save your custom data?</source>
           <source>Game ban</source>
           <target state="translated">Baneado de juego</target>
         </trans-unit>
-        <trans-unit id="HeaderLastConnection" translate="yes" xml:space="preserve">
-          <source>Last connection</source>
-          <target state="translated">Última conexión</target>
-        </trans-unit>
         <trans-unit id="HeaderNickname" translate="yes" xml:space="preserve">
           <source>Nickname</source>
           <target state="translated">Nickname</target>
@@ -4226,6 +4218,15 @@ Please update it by clicking on the "Update" button.</target>
         <trans-unit id="LabelDisplayTimeSeconds" translate="yes" xml:space="preserve">
           <source>Display time (seconds):</source>
           <target state="new">Display time (seconds):</target>
+        </trans-unit>
+        <trans-unit id="CheckForUpdatesOnAppStartup" translate="yes" xml:space="preserve">
+          <source>Check for updates on app startup</source>
+          <target state="new">Check for updates on app startup</target>
+        </trans-unit>
+        <trans-unit id="EnableWorldwide" translate="yes" xml:space="preserve">
+          <source>Enable worldwide parameter</source>
+          <target state="new">Enable worldwide parameter</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Enable -worldwide startup parameter</note>
         </trans-unit>
       </group>
     </body>

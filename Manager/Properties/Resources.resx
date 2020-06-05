@@ -984,9 +984,6 @@
   <data name="HeaderToolTipKillsPerDeaths" xml:space="preserve">
     <value>Kills Per Deaths</value>
   </data>
-  <data name="HeaderToolTipLastConnexion" xml:space="preserve">
-    <value>Last online</value>
-  </data>
   <data name="HeaderToolTipMapName" xml:space="preserve">
     <value>Map's name</value>
   </data>
@@ -2256,9 +2253,6 @@ Do you want to save your custom data?</value>
   <data name="HeaderGameBan" xml:space="preserve">
     <value>Game ban</value>
   </data>
-  <data name="HeaderLastConnection" xml:space="preserve">
-    <value>Last connection</value>
-  </data>
   <data name="HeaderNickname" xml:space="preserve">
     <value>Nickname</value>
   </data>
@@ -3265,5 +3259,12 @@ Please update it by clicking on the "Update" button.</value>
   </data>
   <data name="LabelDisplayTimeSeconds" xml:space="preserve">
     <value>Display time (seconds):</value>
+  </data>
+  <data name="CheckForUpdatesOnAppStartup" xml:space="preserve">
+    <value>Check for updates on app startup</value>
+  </data>
+  <data name="EnableWorldwide" xml:space="preserve">
+    <value>Enable worldwide parameter</value>
+    <comment>Enable -worldwide startup parameter</comment>
   </data>
 </root>

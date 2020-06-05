@@ -90,6 +90,7 @@ namespace Services.Concrete.Movie
 					CsgoExePath = AppSettings.GetCsgoExePath(), // TODO move it?
 					EnableHlaeConfigParent = _config.EnableHlaeConfigParent,
 					Fullscreen = false,
+					IsWorldwideEnabled = _config.IsWorldwideEnabled,
 					Height = _config.Height,
 					Width = _config.Width,
 					HlaeConfigParentFolderPath = _config.HlaeConfigParentFolderPath,
@@ -381,7 +382,6 @@ namespace Services.Concrete.Movie
 			args.Add("-i \"" + GetLastWavFilePath() + "\"");
 			args.Add("-vcodec " + _config.VideoCodec);
 			args.Add("-qp " + _config.VideoQuality);
-			args.Add("-r " + _config.FFmpegVideoFramerate);
 			args.Add("-acodec " + _config.AudioCodec);
 			args.Add("-b:a " + _config.AudioBitrate + "K");
 			if (!string.IsNullOrEmpty(_config.FFmpegExtraParameters))

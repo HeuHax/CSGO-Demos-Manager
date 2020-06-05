@@ -19,7 +19,7 @@ namespace Manager.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -634,6 +634,15 @@ namespace Manager.Properties {
         public static string ChangeHLAEParentFolderLocation {
             get {
                 return ResourceManager.GetString("ChangeHLAEParentFolderLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check for updates on app startup.
+        /// </summary>
+        public static string CheckForUpdatesOnAppStartup {
+            get {
+                return ResourceManager.GetString("CheckForUpdatesOnAppStartup", resourceCulture);
             }
         }
         
@@ -2616,6 +2625,15 @@ namespace Manager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enable worldwide parameter.
+        /// </summary>
+        public static string EnableWorldwide {
+            get {
+                return ResourceManager.GetString("EnableWorldwide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to If you encountered a bug or have any suggestions, feel free to open an issue on.
         /// </summary>
         public static string EncounteredBug {
@@ -3508,15 +3526,6 @@ namespace Manager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Last connection.
-        /// </summary>
-        public static string HeaderLastConnection {
-            get {
-                return ResourceManager.GetString("HeaderLastConnection", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Killer \ Victim.
         /// </summary>
         public static string HeaderMatrixKillerVictim {
@@ -4269,15 +4278,6 @@ namespace Manager.Properties {
         public static string HeaderToolTipKnifeKills {
             get {
                 return ResourceManager.GetString("HeaderToolTipKnifeKills", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Last online.
-        /// </summary>
-        public static string HeaderToolTipLastConnexion {
-            get {
-                return ResourceManager.GetString("HeaderToolTipLastConnexion", resourceCulture);
             }
         }
         

@@ -27,7 +27,7 @@ namespace Services.Concrete
 		private const int STUFF_BEGIN_DELAY = 5; // Seconds before the playback start playing and focus on the player
 		private const int STUFF_END_DELAY = 3; // Seconds before the playback fast forward to the next stuff when the previous one is done
 		private const int MOLOTOV_TIME = 8; // Seconds average waiting time for a molotov end
-		private const string ARGUMENT_SEPARATOR = " ";
+        private const string ARGUMENT_SEPARATOR = " ";
 		/// <summary>
 		/// Launcher configuration
 		/// </summary>
@@ -52,6 +52,7 @@ namespace Services.Concrete
 		public async Task StartGame()
 		{
 			SetupResolutionParameters();
+			SetupWorldwideParameter();
 			KillCsgo();
 			if (_config.EnableHlae)
 			{
@@ -129,6 +130,12 @@ namespace Services.Concrete
 			_arguments.Add("-h");
 			_arguments.Add(_config.Height > 600 ? _config.Height.ToString() : "600");
 			_arguments.Add(_config.Fullscreen ? "-fullscreen" : "-windowed");
+		}
+
+		private void SetupWorldwideParameter()
+		{
+			if (_config.IsWorldwideEnabled)
+				_arguments.Add("-worldwide");
 		}
 
 		private Task DeleteVdmFile()
@@ -223,6 +230,13 @@ namespace Services.Concrete
 					break;
 			}
 			GeneratePlayerStuffVdm(player, type);
+			_config.DeleteVdmFileAtStratup = false;
+			await StartGame();
+		}
+
+		public async void WatchPlayer()
+		{
+			GenerateWatchPlayerVdm();
 			_config.DeleteVdmFileAtStratup = false;
 			await StartGame();
 		}
@@ -418,6 +432,51 @@ namespace Services.Concrete
 			}
 
 			generated += string.Format(Properties.Resources.stop_playback, ++actionCount, lastTick + nextActionDelayCount);
+			string content = string.Format(Properties.Resources.main, generated);
+			File.WriteAllText(demo.GetVdmFilePath(), content);
+		}
+
+		private void GenerateWatchPlayerVdm()
+		{
+			if (_config.FocusPlayerSteamId <= 0)
+				throw new Exception("SteamID required to generate player review.");
+
+			Demo demo = _config.Demo;
+			int nextTick = 0;
+			int startTick = 0;
+			int actionCount = 0;
+			string generated = string.Empty;
+			int nextActionDelayCount = (int)(demo.ServerTickrate * NEXT_ACTION_DELAY);
+
+			var playerDeaths = demo.Kills.Where(k => k.KilledSteamId == _config.FocusPlayerSteamId);
+
+			nextTick = demo.Rounds[0].FreezetimeEndTick;
+			generated += string.Format(Properties.Resources.skip_ahead, ++actionCount, 0, nextTick);
+			generated += string.Format(Properties.Resources.spec_player, ++actionCount, nextTick + 1, _config.FocusPlayerSteamId);
+
+			foreach (Round r in demo.Rounds)
+			{
+                // last round, don't do anything just let the demo play out
+                if (r.Number == demo.Rounds.Count)
+                    break;
+                
+                // player dies this round, skip to next round after player death
+                if (playerDeaths.Any(k => k.RoundNumber == r.Number))
+				{
+					startTick = playerDeaths.Where(k => k.RoundNumber == r.Number).First().Tick + nextActionDelayCount;
+                    nextTick = demo.Rounds[r.Number].FreezetimeEndTick;
+                }
+				// player doesn't die this round, show full round
+				else
+				{
+					startTick = r.EndTickOfficially;
+                    nextTick = demo.Rounds[r.Number].FreezetimeEndTick;
+                }
+
+				// skips the freezetime at the beginning of the round
+				generated += string.Format(Properties.Resources.skip_ahead, ++actionCount, startTick, nextTick);
+			}
+
 			string content = string.Format(Properties.Resources.main, generated);
 			File.WriteAllText(demo.GetVdmFilePath(), content);
 		}

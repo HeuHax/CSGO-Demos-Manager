@@ -120,6 +120,9 @@
 													HorizontalAlignment="Left"
 													MaxWidth="80"
 													Value="{Binding Source={StaticResource Locator}, Path=Settings.ResolutionHeight}" />
+							<CheckBox Content="{x:Static properties:Resources.EnableWorldwide}"
+									  Style="{StaticResource CheckBoxColumnOptionStyle}"
+									  IsChecked="{Binding Source={StaticResource Locator}, Path=Settings.IsWorldwideEnabled}" />
 							<Label Target="{Binding ElementName=LaunchParametersTextBox}"
 								   Content="{x:Static properties:Resources.AdditionalsParametersLabel}"/>
 							<TextBox x:Name="LaunchParametersTextBox"
@@ -515,6 +518,9 @@
 						<StackPanel Orientation="Vertical"
 									Margin="10"
 									HorizontalAlignment="Left">
+							<CheckBox Content="{x:Static properties:Resources.CheckForUpdatesOnAppStartup}"
+									  IsChecked="{Binding Source={StaticResource Locator}, Path=Settings.IsCheckForUpdatesEnabled}"
+									  Style="{StaticResource CheckBoxColumnOptionStyle}" />
 							<TextBlock Text="{x:Static properties:Resources.DateFormat}"
 									   Style="{StaticResource TitleSettingsStyle}" />
 							<CheckBox Content="dd/mm/yyyy"

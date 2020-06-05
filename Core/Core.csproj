@@ -35,8 +35,8 @@
     <MultilingualFallbackLanguage>en-US</MultilingualFallbackLanguage>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\CommonServiceLocator.2.0.4\lib\net45\CommonServiceLocator.dll</HintPath>
+    <Reference Include="CommonServiceLocator, Version=2.0.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.5\lib\net45\CommonServiceLocator.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
@@ -47,11 +47,11 @@
     <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="protobuf-net, Version=2.4.0.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
-      <HintPath>..\packages\protobuf-net.2.4.0\lib\net40\protobuf-net.dll</HintPath>
+      <HintPath>..\packages\protobuf-net.2.4.6\lib\net40\protobuf-net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -74,9 +74,13 @@
     <Compile Include="Models\Language.cs" />
     <Compile Include="Models\Map.cs" />
     <Compile Include="Models\Maps\Agency.cs" />
+    <Compile Include="Models\Maps\Anubis.cs" />
+    <Compile Include="Models\Maps\Austria.cs" />
+    <Compile Include="Models\Maps\Biome.cs" />
     <Compile Include="Models\Maps\Cache.cs" />
     <Compile Include="Models\Maps\Canals.cs" />
     <Compile Include="Models\Maps\Cbble.cs" />
+    <Compile Include="Models\Maps\Chlorine.cs" />
     <Compile Include="Models\Maps\Coast.cs" />
     <Compile Include="Models\Maps\Cruise.cs" />
     <Compile Include="Models\Maps\Dust2.cs" />
@@ -88,12 +92,14 @@
     <Compile Include="Models\Maps\NewInferno.cs" />
     <Compile Include="Models\Maps\NewNuke.cs" />
     <Compile Include="Models\Maps\Nuke.cs" />
+    <Compile Include="Models\Maps\Office.cs" />
     <Compile Include="Models\Maps\Overpass.cs" />
     <Compile Include="Models\Maps\Royal.cs" />
     <Compile Include="Models\Maps\Santorini.cs" />
     <Compile Include="Models\Maps\Season.cs" />
     <Compile Include="Models\Maps\Train.cs" />
     <Compile Include="Models\Maps\Tulip.cs" />
+    <Compile Include="Models\Maps\Vertigo.cs" />
     <Compile Include="Models\protobuf\GCMessages.cs" />
     <Compile Include="Models\protobuf\SteamMessages.cs" />
     <Compile Include="Models\Serialization\EndReasonToStringConverter.cs" />
@@ -105,6 +111,7 @@
     <Compile Include="Models\Source\Wanmei.cs" />
     <Compile Include="Models\Steam\VanityUrlResponse.cs" />
     <Compile Include="Models\Stuff.cs" />
+    <Compile Include="Models\Maps\Subzero.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

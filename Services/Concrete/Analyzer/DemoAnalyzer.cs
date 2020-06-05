@@ -172,6 +172,10 @@ namespace Services.Concrete.Analyzer
 			DemoParser parser = new DemoParser(File.OpenRead(pathDemoFile));
 
 			DateTime dateFile = File.GetCreationTime(pathDemoFile);
+
+			if (dateFile > File.GetLastWriteTime(pathDemoFile))
+				dateFile = File.GetLastWriteTime(pathDemoFile);
+
 			Demo demo = new Demo
 			{
 				Name = Path.GetFileName(pathDemoFile),
@@ -208,7 +212,8 @@ namespace Services.Concrete.Analyzer
 				demo.Tickrate = (int)Math.Round((double)header.PlaybackFrames / header.PlaybackTime);
 			}
 			demo.Duration = header.PlaybackTime;
-			demo.MapName = header.MapName;
+			// Valve maps moved from competitive to scrimmage (only mirage ATM) contains the suffix "_scrimmagemap" in the header.
+			demo.MapName = header.MapName.Replace("_scrimmagemap", "");
 			demo.Source = DetermineDemoSource(demo, header);
 			demo.Ticks = header.PlaybackTicks;
 

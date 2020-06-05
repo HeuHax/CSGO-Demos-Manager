@@ -33,7 +33,7 @@ namespace Manager
 			"CorySanin",
 		};
 		public static string[] Translators = {
-			"FisherMan aka. deathles乃夫 (Chinese simplified)",
+			"FisherMan aka. deathles乃夫 / AlexWIT from 無盡國度 / ❤Elsa (Chinese Simplified)",
 			"Allan \"Michael\" Simonsen (Danish)",
 			"Leonardo / RedDeadLuigi / mvinoba (Brazilian)",
 			"Spidersouris (French)",
@@ -47,7 +47,6 @@ namespace Manager
 		{
 			DispatcherHelper.Initialize();
 			AppDomain.CurrentDomain.UnhandledException += OnCurrentDomainOnUnhandledException;
-			AppDomain.CurrentDomain.FirstChanceException += OnCurrentDomainOnFirstChanceException;
 			DispatcherUnhandledException += OnDispatcherUnhandledException;
 			TaskScheduler.UnobservedTaskException += TaskSchedulerOnUnobservedTaskException;
 		}
@@ -64,12 +63,7 @@ namespace Manager
 			Logger.Instance.Log(e.Exception);
 		}
 
-		private static void OnCurrentDomainOnFirstChanceException(object sender, FirstChanceExceptionEventArgs e)
-		{
-			Logger.Instance.Log(e.Exception);
-		}
-
-		private static void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        private static void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
 		{
 			Logger.Instance.Log(e.Exception);
 		}

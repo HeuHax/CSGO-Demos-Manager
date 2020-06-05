@@ -152,6 +152,9 @@ namespace DemoInfo.DP.Handler
 				kill.Headshot = (bool)data["headshot"];
 				kill.Weapon = new Equipment((string)data["weapon"], (string)data["weapon_itemid"]);
 
+				if (data.ContainsKey("assistedflash"))
+					kill.AssistedFlash = (bool)data["assistedflash"];
+
 				if (kill.Killer != null && kill.Killer.ActiveWeapon != null)
 				{
 					// in case of grenade kills, killer's active weapon is not his grenade at this state
@@ -253,7 +256,9 @@ namespace DemoInfo.DP.Handler
 				var fireEndData = MapData(eventDescriptor, rawEvent);
 				var fireEndArgs = FillNadeEvent<FireEventArgs>(fireEndData, parser);
 				int entityID = (int)fireEndData["entityid"];
-				fireEndArgs.ThrownBy = parser.InfernoOwners[entityID];
+				if (parser.InfernoOwners.ContainsKey(entityID)) {
+					fireEndArgs.ThrownBy = parser.InfernoOwners[entityID];
+				}
 				parser.RaiseFireEnd(fireEndArgs);
 				break;
 				#endregion
